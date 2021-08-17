@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, {useState} from "react";
 import './App.css';
+import MyComponent from "./MyComponent";
+import Message from "./Message";
 
 function App() {
+
+  const [inputText, setInputText] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <span className='myComp'>Hello World! It's working</span>
+
+      <Message textToShow="I love ReactJS"/>
+
+      <input value={inputText} onChange={e => setInputText(e.target.value)} style={{color:"red", width:300,}}/>
+      <MyComponent textToShow={inputText}/>
+
     </div>
   );
 }
